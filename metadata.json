@@ -1,0 +1,8 @@
+{
+  "name": "Oober - Go Everywhere",
+  "description": "Redesigned ride-hailing experience inspired by Figma. Request rides, schedule trips, and travel across Kerala and beyond.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

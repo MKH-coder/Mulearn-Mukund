@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oober - Go Everywhere</title>
+    <meta name="description" content="Redesigned ride-hailing experience inspired by Figma. Request rides, schedule trips, and travel across Kerala and beyond.">
+    <meta property="og:title" content="Oober - Go Everywhere">
+    <meta property="og:description" content="Redesigned ride-hailing experience inspired by Figma.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="site-header">
+        <div class="container nav-container">
+            <div class="nav-left">
+                <a href="/" class="brand-logo">Oober</a>
+                
+                <nav class="nav-menu" id="nav-menu">
+                    <a href="#ride" class="nav-pill active">Ride</a>
+                    <a href="#drive" class="nav-pill">Drive</a>
+                    <a href="#business" class="nav-pill">Business</a>
+                    <a href="#about" class="nav-pill">About</a>
+                </nav>
+            </div>
+
+            <div class="nav-right">
+                <button class="nav-btn-icon" id="lang-btn" title="Select Language" aria-label="Language">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                </button>
+                <button class="nav-pill" id="help-btn">Help</button>
+                <button class="nav-pill" id="login-nav-btn">Log in</button>
+                <button class="btn-pill btn-pill-white" id="signup-nav-btn">Sign up</button>
+                <button class="nav-btn-icon" id="fullscreen-btn" title="Toggle Fullscreen" aria-label="Fullscreen">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" y1="3" x2="14" y2="10"></line><line x1="3" y1="21" x2="10" y2="14"></line></svg>
+                </button>
+                <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Mobile Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="ride">
+        <div class="container">
+            <div class="hero-layout">
+                <!-- Hero Left Form Column -->
+                <div class="hero-left">
+                    <div class="city-indicator">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span class="city-name" id="city-display">Kerela , IN</span>
+                        <span class="change-city-link" id="change-city-link">Change city</span>
+                    </div>
+
+                    <h1 class="hero-title-script">Go everywhere</h1>
+
+                    <!-- Timing dropdown button -->
+                    <div class="timing-dropdown-wrapper">
+                        <button class="btn-timing" id="timing-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span id="timing-text">Pickup Now</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </button>
+                    </div>
+
+                    <!-- Ride Form -->
+                    <div class="ride-booking-form">
+                        <div class="input-group">
+                            <input type="text" class="form-input" id="start-location" placeholder="Starting Location" value="MG Road, Kochi, Kerala">
+                            <div class="input-icon-right" id="detect-gps-btn" title="Use current location">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"></path></svg>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="text" class="form-input" id="end-location" placeholder="Ending Location" value="Fort Kochi Beach, Kerala">
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="hero-actions-row">
+                        <button class="btn-action-primary" id="see-prices-btn">See prices</button>
+                        <button class="btn-action-maroon" id="activity-btn">Log in to check your activity</button>
+                    </div>
+                </div>
+
+                <!-- Hero Right Collage Capsule -->
+                <div class="hero-right">
+                    <div class="capsule-collage-container">
+                        <!-- Top Image: Evening Indian city street -->
+                        <div class="collage-item span-full">
+                            <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1000&q=80" alt="Bustling Indian city evening street" loading="eager">
+                        </div>
+                        <!-- Bottom Left: Friends riding motorcycle -->
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80" alt="Motorcycle riders in Kerala street" loading="lazy">
+                        </div>
+                        <!-- Bottom Right: Sunset city skyline -->
+                        <div class="collage-item">
+                            <img src="https://images.unsplash.com/photo-1509299349698-dd22323b5963?auto=format&fit=crop&w=600&q=80" alt="Woman enjoying sunset cityscape" loading="lazy">
+                        </div>
+                    </div>
+
+                    <!-- Floating Frosted Glass Banner -->
+                    <div class="floating-schedule-card">
+                        <span class="schedule-card-text">Ready to travel?</span>
+                        <button class="btn-schedule-pill" id="schedule-banner-btn">Schedule here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Explore Section -->
+    <section class="explore-section" id="explore">
+        <div class="container">
+            <h2 class="section-title">Explore what you can do with Oober</h2>
+
+            <div class="explore-grid">
+                <!-- Card 1: Ride -->
+                <div class="explore-card" data-action="ride">
+                    <div>
+                        <div class="card-icon-wrapper">🚗</div>
+                        <h3>Ride</h3>
+                        <p>Go anywhere across Kerala with Oober. Request a ride in seconds, hop in, and enjoy transparent pricing with upfront fares.</p>
+                    </div>
+                    <span class="card-link">Request a Ride &rarr;</span>
+                </div>
+
+                <!-- Card 2: Auto -->
+                <div class="explore-card" data-action="auto">
+                    <div>
+                        <div class="card-icon-wrapper">🛺</div>
+                        <h3>Oober Auto</h3>
+                        <p>Everyday hassle-free auto-rickshaw rides right at your doorstep. No bargaining, no meters—just affordable direct transit.</p>
+                    </div>
+                    <span class="card-link">Book an Auto &rarr;</span>
+                </div>
+
+                <!-- Card 3: Moto -->
+                <div class="explore-card" data-action="moto">
+                    <div>
+                        <div class="card-icon-wrapper">🛵</div>
+                        <h3>Oober Moto</h3>
+                        <p>Beat the rush hour traffic on a quick two-wheeler. Pocket-friendly, rapid, and ideal for solo commuters.</p>
+                    </div>
+                    <span class="card-link">Get on a Bike &rarr;</span>
+                </div>
+
+                <!-- Card 4: Intercity -->
+                <div class="explore-card" data-action="intercity">
+                    <div>
+                        <div class="card-icon-wrapper">🛣️</div>
+                        <h3>Oober Intercity</h3>
+                        <p>Convenient one-way and round trips between Kerala cities. Travel from Kochi to Trivandrum, Kozhikode, or Thrissur in comfort.</p>
+                    </div>
+                    <span class="card-link">Plan Intercity &rarr;</span>
+                </div>
+
+                <!-- Card 5: Package -->
+                <div class="explore-card" data-action="package">
+                    <div>
+                        <div class="card-icon-wrapper">📦</div>
+                        <h3>Oober Package</h3>
+                        <p>Send and receive items, gifts, or critical work documents across your city on-demand in under 45 minutes.</p>
+                    </div>
+                    <span class="card-link">Send a Package &rarr;</span>
+                </div>
+
+                <!-- Card 6: Business -->
+                <div class="explore-card" data-action="business">
+                    <div>
+                        <div class="card-icon-wrapper">💼</div>
+                        <h3>Oober for Business</h3>
+                        <p>Centralize company ground travel, manage employee rides, and automate expense reporting with enterprise control.</p>
+                    </div>
+                    <span class="card-link">Explore Business &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drive With Oober Section -->
+    <section class="drive-section" id="drive">
+        <div class="container">
+            <div class="drive-layout">
+                <div class="drive-content">
+                    <span class="nav-pill" style="margin-bottom: 1.5rem; display: inline-block;">Drive &amp; Earn</span>
+                    <h2>Drive when you want, make what you need</h2>
+                    <p>
+                        Make money on your schedule with deliveries or rides. You’re in the driver’s seat with total weekly flexibility, instant payouts, and 24/7 dedicated partner support across Kerala.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn-pill btn-pill-white" id="driver-signup-btn">Get started as a driver</button>
+                        <button class="btn-pill btn-pill-dark" id="driver-learn-btn">Already have an account? Sign in</button>
+                    </div>
+                </div>
+
+                <!-- Earnings Calculator Card -->
+                <div class="earnings-calculator-card">
+                    <h3>Estimated Weekly Earnings</h3>
+                    
+                    <div class="calc-row">
+                        <div class="calc-label">
+                            <span>Hours per week:</span>
+                            <strong id="hours-display">30 hrs</strong>
+                        </div>
+                        <input type="range" min="5" max="60" value="30" class="slider-range" id="hours-slider">
+                    </div>
+
+                    <div class="calc-row">
+                        <div class="calc-label">
+                            <span>Vehicle Type:</span>
+                            <span id="vehicle-type-display" style="color: #38bdf8; font-weight: 700;">Sedan / Hatchback</span>
+                        </div>
+                    </div>
+
+                    <div class="earnings-display">
+                        <div class="earnings-number" id="earnings-display">₹14,400</div>
+                        <div class="earnings-subtext">Estimated potential gross weekly earnings in Kerala</div>
+                    </div>
+
+                    <button class="btn-action-primary" style="width: 100%;" id="calc-apply-btn">Apply Now to Drive</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal 1: See Prices & Ride Estimator -->
+    <div class="modal-overlay" id="price-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" data-close="price-modal">&times;</button>
+            <h3 class="modal-title">Available Rides</h3>
+            <p class="modal-subtitle" id="modal-route-display">MG Road, Kochi &rarr; Fort Kochi Beach</p>
+
+            <div class="ride-options-list">
+                <!-- Option 1: Auto -->
+                <div class="ride-option-card selected" data-car="auto" data-price="₹115">
+                    <div class="ride-opt-left">
+                        <span class="ride-opt-icon">🛺</span>
+                        <div class="ride-opt-info">
+                            <h4>Oober Auto</h4>
+                            <p>3 min away &bull; Affordable 3-wheeler</p>
+                        </div>
+                    </div>
+                    <span class="ride-opt-price">₹115</span>
+                </div>
+
+                <!-- Option 2: Oober Go -->
+                <div class="ride-option-card" data-car="go" data-price="₹185">
+                    <div class="ride-opt-left">
+                        <span class="ride-opt-icon">🚗</span>
+                        <div class="ride-opt-info">
+                            <h4>Oober Go</h4>
+                            <p>4 min away &bull; AC compact hatchback</p>
+                        </div>
+                    </div>
+                    <span class="ride-opt-price">₹185</span>
+                </div>
+
+                <!-- Option 3: Premier -->
+                <div class="ride-option-card" data-car="premier" data-price="₹260">
+                    <div class="ride-opt-left">
+                        <span class="ride-opt-icon">🚘</span>
+                        <div class="ride-opt-info">
+                            <h4>Oober Premier</h4>
+                            <p>6 min away &bull; Premium sedans &amp; top drivers</p>
+                        </div>
+                    </div>
+                    <span class="ride-opt-price">₹260</span>
+                </div>
+
+                <!-- Option 4: Moto -->
+                <div class="ride-option-card" data-car="moto" data-price="₹65">
+                    <div class="ride-opt-left">
+                        <span class="ride-opt-icon">🛵</span>
+                        <div class="ride-opt-info">
+                            <h4>Oober Moto</h4>
+                            <p>2 min away &bull; Fast motorbike commute</p>
+                        </div>
+                    </div>
+                    <span class="ride-opt-price">₹65</span>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem;">
+                <button class="btn-action-primary" style="flex: 1;" id="confirm-booking-btn">Confirm Oober Auto</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Change City -->
+    <div class="modal-overlay" id="city-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" data-close="city-modal">&times;</button>
+            <h3 class="modal-title">Select Your City</h3>
+            <p class="modal-subtitle">Choose from active Oober hubs across Kerala and major metropolitan regions.</p>
+
+            <div class="city-grid">
+                <div class="city-pill-choice active">Kerala (Kochi)</div>
+                <div class="city-pill-choice">Trivandrum</div>
+                <div class="city-pill-choice">Kozhikode</div>
+                <div class="city-pill-choice">Thrissur</div>
+                <div class="city-pill-choice">Alappuzha</div>
+                <div class="city-pill-choice">Kollam</div>
+                <div class="city-pill-choice">Kottayam</div>
+                <div class="city-pill-choice">Kannur</div>
+                <div class="city-pill-choice">Bengaluru</div>
+                <div class="city-pill-choice">Chennai</div>
+                <div class="city-pill-choice">Mumbai</div>
+                <div class="city-pill-choice">Delhi NCR</div>
+            </div>
+
+            <button class="btn-action-primary" style="width: 100%;" id="confirm-city-btn">Set City</button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Schedule Trip -->
+    <div class="modal-overlay" id="schedule-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" data-close="schedule-modal">&times;</button>
+            <h3 class="modal-title">Schedule a Ride</h3>
+            <p class="modal-subtitle">Select date and pickup window up to 30 days in advance.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1.5rem;">
+                <div>
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem;">Pickup Date</label>
+                    <input type="date" class="form-input" id="schedule-date">
+                </div>
+                <div>
+                    <label style="display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.4rem;">Pickup Time</label>
+                    <input type="time" class="form-input" id="schedule-time" value="09:00">
+                </div>
+            </div>
+
+            <button class="btn-action-primary" style="width: 100%;" id="save-schedule-btn">Save Schedule</button>
+        </div>
+    </div>
+
+    <!-- Modal 4: Login / Activity -->
+    <div class="modal-overlay" id="auth-modal">
+        <div class="modal-content">
+            <button class="modal-close-btn" data-close="auth-modal">&times;</button>
+            <h3 class="modal-title" id="auth-modal-title">Welcome to Oober</h3>
+            <p class="modal-subtitle">Enter your phone number to sign in or create an account.</p>
+
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <input type="text" value="+91" readonly class="form-input" style="width: 80px; text-align: center; font-weight: 700;">
+                <input type="tel" placeholder="Mobile Number" class="form-input" id="auth-phone-input" style="flex: 1;">
+            </div>
+
+            <button class="btn-action-primary" style="width: 100%;" id="auth-continue-btn">Continue</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="/" class="brand-logo">Oober</a>
+                <a href="#help-btn" class="nav-pill" style="text-decoration: none;">Help Center</a>
+            </div>
+
+            <div class="footer-columns">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#explore">Our Offerings</a></li>
+                        <li><a href="#news">Newsroom</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Products</h4>
+                    <ul>
+                        <li><a href="#ride">Ride</a></li>
+                        <li><a href="#drive">Drive</a></li>
+                        <li><a href="#explore">Deliver</a></li>
+                        <li><a href="#business">Oober for Business</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Global Citizenship</h4>
+                    <ul>
+                        <li><a href="#safety">Safety</a></li>
+                        <li><a href="#diversity">Diversity and Inclusion</a></li>
+                        <li><a href="#sustainability">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Travel</h4>
+                    <ul>
+                        <li><a href="#reserve">Reserve</a></li>
+                        <li><a href="#airports">Airports</a></li>
+                        <li><a href="#cities">Cities</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Oober Technologies Inc. #ge-website-redesign.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#privacy" style="color: var(--text-dim); text-decoration: none;">Privacy</a>
+                    <a href="#accessibility" style="color: var(--text-dim); text-decoration: none;">Accessibility</a>
+                    <a href="#terms" style="color: var(--text-dim); text-decoration: none;">Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script src="app.js"></script>
+</body>
+</html>
